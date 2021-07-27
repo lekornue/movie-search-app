@@ -23,7 +23,7 @@ const MoviePageContent: React.FC<MoviePageContentProps> = ({ movie, currentTab }
                 {currentTab === "description" 
                 ? 
                 <ContentDecription movie = {movie}/>
-                 : 
+                : 
                 <ContentCharacteristics  movie = {movie}/>
                 }
             </div>

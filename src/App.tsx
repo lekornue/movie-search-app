@@ -6,10 +6,11 @@ import { About } from "./pages/AboutPage";
 import { MoviesCardsPage } from "./pages/MoviesCardsPage";
 import { MoviePage } from "./pages/MoviePage";
 import NavBar from "./сomponents/NavBar";
+import { Search, SingleMovie } from "./interfaces";
 
 interface RootState {
-  movies: any;
-  singleMovie: any;
+  movies: Search[];
+  singleMovie: SingleMovie;
 }
 
 const App: React.FC = () => {
