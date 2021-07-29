@@ -3,19 +3,25 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { fetchMovies } from "../redux/actions";
+import { SHOW_MODAL } from "../redux/types";
 
 const NavBar: React.FC = () => {
+
   const [title, setTitle] = useState<string>("");
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMovies(title))
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [title]);
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
+  };
+
+  const clickHandler = () => {
+    dispatch({ type: SHOW_MODAL })
   };
 
   return (
@@ -36,23 +42,19 @@ const NavBar: React.FC = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/about" title="О команде">
-                О команде
+                О приложении
               </NavLink>
+            </li>
+            <li className="nav-item" style={{ marginLeft: '10rem' }}>
+              <button type="button" className="btn btn-primary" onClick={clickHandler} >
+                Регистрация
+              </button>
             </li>
           </ul>
           <div className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={changeHandler}
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={changeHandler}
             />
-            <NavLink
-              className="btn btn-primary"
-              to="/movies"
-              role="button"
-              title="Movies"
+            <NavLink className="btn btn-primary" to="/movies" role="button" title="Movies"
             >
               Search
             </NavLink>

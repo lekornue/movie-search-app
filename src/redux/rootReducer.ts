@@ -1,8 +1,9 @@
-import { FETCH_MOVIES, FETCH_SINGLEMOVIE } from "./types";
+import { FETCH_MOVIES, FETCH_SINGLEMOVIE, SHOW_MODAL } from "./types";
 
 const initialState = {
   movies: [],
   singleMovie: {},
+  showModal : false,
 };
 
 export const rootReducer = (state = initialState, action: { type: string; payload: any; }) => {
@@ -11,6 +12,8 @@ export const rootReducer = (state = initialState, action: { type: string; payloa
       return { ...state, movies: action.payload }
     case FETCH_SINGLEMOVIE:
       return { ...state, singleMovie: action.payload }
+      case SHOW_MODAL:
+        return { ...state, showModal: !state.showModal }
     default:
       return state;
   }

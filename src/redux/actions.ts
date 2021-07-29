@@ -13,9 +13,4 @@ export function fetchSingleMovie(imdbID: string) {
     type: REQUEST_SINGLEMOVIE,
     imdbID: imdbID,
   };
-  /*   return function (dispatch: (arg0: { type: string; payload: any; }) => any) {
-    fetch(`http://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=de7d9c13`)
-      .then((response) => response.json())
-      .then((json) => dispatch({ type: FETCH_SINGLEMOVIE, payload: json }));
-  }; */
 }

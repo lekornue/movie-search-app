@@ -7,17 +7,21 @@ import { MoviesCardsPage } from "./pages/MoviesCardsPage";
 import { MoviePage } from "./pages/MoviePage";
 import NavBar from "./сomponents/NavBar";
 import { Search, SingleMovie } from "./interfaces";
+import Modal from "./сomponents/Modal";
 
 interface RootState {
   movies: Search[];
   singleMovie: SingleMovie;
+  showModal: boolean;
 }
 
 const App: React.FC = () => {
   const movies = useSelector((state: RootState) => state.movies);
   const singleMovie = useSelector((state: RootState) => state.singleMovie);
+  const showModal = useSelector((state: RootState) => state.showModal);
 
   return (
+    <>
     <BrowserRouter>
       <NavBar />
       <div className="container pt-4">
@@ -46,9 +50,12 @@ const App: React.FC = () => {
             path="/movies"
             render={() => <MoviesCardsPage movieList={movies} />}
           />
+
         </Switch>
       </div>
     </BrowserRouter>
+    {showModal && (<Modal />)}
+    </>
   );
 };
 

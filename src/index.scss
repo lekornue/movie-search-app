@@ -9,6 +9,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.Modal {
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(48, 48, 48, 0.4);
+  font-size: 16px;
+}
+
+.invalid {
+  border-color: red;
+}
+
+.error {
+  font-size: 18px;
+  color: red;
+  margin-top: 10px;
+  text-align: right;
+}
+
+
 ::-webkit-scrollbar { 
   display: none; 
 }
